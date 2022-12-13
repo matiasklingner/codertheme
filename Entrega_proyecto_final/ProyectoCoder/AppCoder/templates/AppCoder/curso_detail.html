@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block codigoDinamico %}
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <h1 class="row justify-content-center">Course Detail</h1>
+            <img src="../static/AppCoder/assets/img/Details.svg" alt="">
+        </div>
+    </div>
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            {{curso.nombre}}
+            {{curso.comision}}
+
+            <button class="btn btn-success">
+                <a href="{% url 'List' %}">Return</a>
+            </button>
+        </div>
+    </div>
+{% endblock %}

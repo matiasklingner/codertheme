@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block codigoDinamico %}
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <img src="../static/AppCoder/assets/img/create.svg" alt="">
+        </div>
+    </div>
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <form method="post">{% csrf_token %}
+                Do you really want to delete this course: {{object}}?
+                <input class="btn btn-success" type="submit" value="Yes">
+                <button class="btn btn-danger">
+                    <a href="{% url 'List' %}">No</a>
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

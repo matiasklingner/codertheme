@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block codigoDinamico %}
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <h1 class="row justify-content-center">Show Professor</h1>
+            <img src="../static/AppCoder/assets/img/professors.svg" alt="">
+        </div>
+    </div>
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <h3>Professor's list</h3>
+            </br>
+            {% for profesor in profesores %}
+
+                <p>
+                    id: {{profesor.id}}
+                    {{profesor}}
+                </p>
+                {% if request.user.is_authenticated  %}
+                    <button type="button" class="btn btn-warning">
+                        <a href="{% url 'Actualizar Profesor' profesor_id=profesor.id %}">Update</a>
+                    </button>
+                {% else %}
+                {% endif %}
+                {% if request.user.is_authenticated  %}
+                    <button type="button" class="btn btn-danger">
+                        <a href="{% url 'Eliminar Profesor' profesor_id=profesor.id %}">Delete</a>
+                    </button>
+                {% else %}
+                {% endif %}
+            {% endfor %}
+            </br>
+            <h4>Back Home</h4>
+            <button type="button" class="btn btn-info">
+                <a href="{% url 'Home' %}">Return</a>
+            </button>
+        </div>
+    </div>
+{% endblock %}

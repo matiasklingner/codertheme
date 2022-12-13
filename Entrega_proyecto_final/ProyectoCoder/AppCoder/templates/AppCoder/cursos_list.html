@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block codigoDinamico %}
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <h1 class="row justify-content-center">Show Course</h1>
+            <img src="../static/AppCoder/assets/img/show_course.svg" alt="">
+        </div>
+    </div>
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            {% for curso in object_list %}
+                <ul>
+                    <li>
+                        {{curso}}
+                        <button type="button" class="btn btn-info">
+                            <a href="{% url 'Detail' curso.id %}">Detail</a>
+                        </button>
+                        {% if request.user.is_authenticated  %}
+                            <button type="button" class="btn btn-warning">
+                                <a href="{% url 'Update' curso.id %}">Update</a>
+                            </button>
+                        {% else %}
+                        {% endif %}
+                        {% if request.user.is_authenticated  %}
+                        <button type="button" class="btn btn-danger">
+                            <a href="{% url 'Delete' curso.id %}">Delete</a>
+                        </button>
+                        {% else %}
+                        {% endif %}
+                    </li>
+                </ul>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="container position-relative">
+            <button type="button" class="btn btn-success">
+                <a href="{% url 'Create' %}">Create</a>
+            </button>
+    </div>
+
+{% endblock %}

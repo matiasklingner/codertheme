@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block codigoDinamico %}
+
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <h1 class="row justify-content-center">Search Professor</h1>
+        </div>
+    </div>
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <img src="../static/AppCoder/assets/img/Search.svg" alt="">
+        </div>
+    </div>
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <form action="" method="get" class="row justify-content-center">
+
+                <input type="text" name="email" id="email">
+                <input class="btn btn-info" type="submit" value="Search">
+
+            </form>
+
+            {% if profesores %}
+
+                <ul>
+                {% for profesor in profesores %}
+                    <li>Professor {{profesor.nombre}} {{profesor.apellido}} with email {{profesor.email}} and profession {{profesor.profesion}}</li>
+                {% endfor %}
+                </ul>
+
+            {% else %}
+                <p>No entry yet</p>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

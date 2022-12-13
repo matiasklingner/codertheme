@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block codigoDinamico %}
+<div class="container position-relative">
+    <div class="row justify-content-center">
+        <h1 class="row justify-content-center">Sign Up</h1>
+        <img src="../static/AppCoder/assets/img/Signup.svg" alt="">
+    </div>
+</div>
+<div class="container position-relative">
+    <div class="row justify-content-center">
+        <form action="" method="">{% csrf_token %}
+
+            {{form.as_p}}
+
+            <button class="btn btn-success" type="submit">Sign In</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
